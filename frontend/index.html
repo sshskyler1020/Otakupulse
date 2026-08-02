@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-width=device-width, initial-scale=1" />
+    <title>Otaku Pulse — Track Anime, Manga & Games in One Place</title>
+    <meta
+      name="description"
+      content="Otaku Pulse is the all-in-one tracker for anime, manga, and games. Log your progress, unify your trophies and achievements, and connect with a community of fans."
+    />
+    <meta name="theme-color" content="#05040C" />
+    <meta property="og:title" content="Otaku Pulse" />
+    <meta property="og:description" content="One pulse for everything you watch, read, and play." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-void text-paper">
+    <div id="root"></div>
+    <script>
+      // Pairs with public/404.html: restores the real path before React
+      // Router mounts, so direct links and refreshes on e.g. /anime work.
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var redirect = params.get("redirect");
+        if (redirect) {
+          history.replaceState(null, "", redirect);
+        }
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
