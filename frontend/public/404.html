@@ -1,0 +1,20 @@
+<!doctype html>
+<!--
+  GitHub Pages serves a static 404 for any path it doesn't recognize as a
+  file, which breaks client-side routing (e.g. a direct visit to /anime).
+  This redirects the browser back to index.html with the original path
+  encoded in the query string; the script in index.html decodes it and
+  restores the URL via history.replaceState before React Router mounts.
+  Standard "spa-github-pages" technique.
+-->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Otaku Pulse</title>
+    <script>
+      var path = location.pathname + location.search + location.hash;
+      location.replace("/?redirect=" + encodeURIComponent(path));
+    </script>
+  </head>
+  <body></body>
+</html>
