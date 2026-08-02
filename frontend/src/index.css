@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-void text-paper font-body antialiased;
+    background-image: radial-gradient(circle at 50% -10%, rgba(124, 58, 237, 0.18), transparent 55%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+  ::selection {
+    background: rgba(139, 92, 246, 0.4);
+  }
+  :focus-visible {
+    outline: 2px solid #2DD4EE;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-surface/60 border border-edge backdrop-blur-xl;
+  }
+  .glass-card {
+    @apply glass rounded-2xl transition-all duration-300;
+  }
+  .glass-card:hover {
+    @apply border-violet-500/50 shadow-glow;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-pulse-gradient
+      px-6 py-3 font-display font-semibold text-void shadow-glow
+      transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-edge
+      bg-surface/80 px-6 py-3 font-display font-semibold text-paper
+      transition-colors duration-200 hover:border-cyan-400/60 hover:text-cyan-300;
+  }
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-cyan-300/80;
+  }
+  .pulse-bars {
+    @apply flex items-end gap-[3px] h-5;
+  }
+  .pulse-bars span {
+    @apply w-[3px] rounded-full bg-pulse-gradient animate-pulseline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
